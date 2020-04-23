@@ -1,3 +1,5 @@
+//confirmed
+
 L.circle([30.9756,112.2707
 ],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:3390000}).addTo(map).bindPopup('Hubei,China : 67800')
 L.circle([41.8719,12.5674
