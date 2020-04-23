@@ -1,3 +1,5 @@
+//deaths
+
 L.circle([30.9756,112.2707
 ],{color:'black',fillColor:'#3C3938',fillOpacity:0.5,radius:157200}).addTo(map).bindPopup('Hubei,China : 3144')
 L.circle([41.8719,12.5674
