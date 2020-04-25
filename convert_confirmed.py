@@ -5,7 +5,7 @@
 # Korea, South - Bahamas, The - Gambia, The : Must be manually fixed in the data (South Korea, Bahamas, Gambia) 
 
 # Read file in
-fi = open("04-21-2020.csv","r")
+fi = open("04-24-2020.csv","r")
 fi.readline() # skip over first title line
 datarows = fi.readlines()
 fi.close()
