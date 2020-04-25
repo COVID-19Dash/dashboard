@@ -18,13 +18,13 @@ count = 0 # count number of circles
 # loop through all rows in the csv file
 for line in datarows:
 	templist = line.split(",")
-	prov = templist[0]
-	country = templist[1]
-	confirmed = templist[3]
-	deaths = templist[4]
-	recover = templist[5]
-	lat = templist[6]
-	lon = templist[7]
+	prov = templist[2]
+	country = templist[3]
+	confirmed = templist[7]
+	deaths = templist[8]
+	recover = templist[9]
+	lat = templist[5]
+	lon = templist[6]
 
 	# make radius of circle bigger for cartographic appeal
 	confirmedradius = int(confirmed) * 50
