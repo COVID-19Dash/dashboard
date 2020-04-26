@@ -27,7 +27,7 @@ for line in datarows:
 	lon = templist[6]
 
 	# make radius of circle bigger for cartographic appeal
-	confirmedradius = int(confirmed) * 50
+	confirmedradius = int(confirmed)
 	
 	if (int(confirmed) > 0):
 		if (prov != ""):
