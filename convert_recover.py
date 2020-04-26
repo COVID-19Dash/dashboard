@@ -27,7 +27,7 @@ for line in datarows:
 	lon = templist[6]
 
 	# make radius of circle bigger for cartographic appeal
-	recoverradius = int(recover)
+	recoverradius = int(recover) * 20
 	
 	if (int(recover) > 0):
 		if (prov != ""):
