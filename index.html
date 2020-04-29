@@ -14,7 +14,7 @@
         </div>
         
         <br><br>
-        
+        <button onclick = "confirmed()">Confirmed Cases</button>
         <center>
         
         <h1>COVID-19 Total Cases, Deaths, Recovered (April 24th, 2020)</h1>
@@ -30,8 +30,8 @@
         carto = new L.TileLayer(cartocdn);
         map.setView([51.5, 0.12],2); // centered on London lat, long
         map.addLayer(carto);
-
-//recovered circles
+        function recovered(){
+        
 L.circle([-51.7963,-59.5236],{color:'#36d030',fillColor:'#3eec38',fillOpacity:0.5,radius:110}).addTo(map).bindPopup('Falkland Islands (Malvinas),United Kingdom : 11')
 L.circle([-42.8821,147.3272],{color:'#36d030',fillColor:'#3eec38',fillOpacity:0.5,radius:670}).addTo(map).bindPopup('Tasmania,Australia : 67')
 L.circle([-40.9006,174.886],{color:'#36d030',fillColor:'#3eec38',fillOpacity:0.5,radius:11180}).addTo(map).bindPopup('New Zealand : 1118')
@@ -270,9 +270,10 @@ L.circle([61.8926,-6.9118],{color:'#36d030',fillColor:'#3eec38',fillOpacity:0.5,
 L.circle([61.92411,25.748151],{color:'#36d030',fillColor:'#3eec38',fillOpacity:0.5,radius:25000}).addTo(map).bindPopup('Finland : 2500')
 L.circle([64.9631,-19.0208],{color:'#36d030',fillColor:'#3eec38',fillOpacity:0.5,radius:15420}).addTo(map).bindPopup('Iceland : 1542')
 L.circle([71.7069,-42.6043],{color:'#36d030',fillColor:'#3eec38',fillOpacity:0.5,radius:110}).addTo(map).bindPopup('Greenland,Denmark : 11')
-
-//confirmed circles
-L.circle([-51.7963,-59.5236],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:39}).addTo(map).bindPopup('Falkland Islands (Malvinas),United Kingdom : 13')
+        }
+        
+        function confirmed(){
+            L.circle([-51.7963,-59.5236],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:39}).addTo(map).bindPopup('Falkland Islands (Malvinas),United Kingdom : 13')
 L.circle([-42.8821,147.3272],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:621}).addTo(map).bindPopup('Tasmania,Australia : 207')
 L.circle([-40.9006,174.886],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:4383}).addTo(map).bindPopup('New Zealand : 1461')
 L.circle([-38.4161,-63.6167],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:10821}).addTo(map).bindPopup('Argentina : 3607')
@@ -3305,8 +3306,10 @@ L.circle([64.90320724,-164.0353804],{color:'red',fillColor:'#f03',fillOpacity:0.
 L.circle([64.9631,-19.0208],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:5367}).addTo(map).bindPopup('Iceland : 1789')
 L.circle([65.50815459,-151.3907387],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:3}).addTo(map).bindPopup('Alaska,US : 1')
 L.circle([71.7069,-42.6043],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:33}).addTo(map).bindPopup('Greenland,Denmark : 11')
-
-//deaths circles
+        }
+        
+        function deaths(){
+        
 L.circle([-42.8821,147.3272],{color:'black',fillColor:'#3C3938',fillOpacity:0.5,radius:450}).addTo(map).bindPopup('Tasmania,Australia : 9')
 L.circle([-40.9006,174.886],{color:'black',fillColor:'#3C3938',fillOpacity:0.5,radius:900}).addTo(map).bindPopup('New Zealand : 18')
 L.circle([-38.4161,-63.6167],{color:'black',fillColor:'#3C3938',fillOpacity:0.5,radius:8800}).addTo(map).bindPopup('Argentina : 176')
@@ -4866,7 +4869,10 @@ L.circle([61.52401,105.318756],{color:'black',fillColor:'#3C3938',fillOpacity:0.
 L.circle([61.92411,25.748151],{color:'black',fillColor:'#3C3938',fillOpacity:0.5,radius:8850}).addTo(map).bindPopup('Finland : 177')
 L.circle([64.80726247,-146.5692662],{color:'black',fillColor:'#3C3938',fillOpacity:0.5,radius:50}).addTo(map).bindPopup('Alaska,US : 1')
 L.circle([64.9631,-19.0208],{color:'black',fillColor:'#3C3938',fillOpacity:0.5,radius:500}).addTo(map).bindPopup('Iceland : 10')
-        
+        }
+//recovered circles
+//confirmed circles
+//deaths circles
         
     </script>
 
