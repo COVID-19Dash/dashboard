@@ -26,3 +26,24 @@
    background-color: #DF1E1E;
    color: white;
  }     
+
+.leftindex {
+    position: absolute;
+    left: 0px;
+    width: 350px;
+    padding: 10px;
+}
+
+.leftindex2 {
+    position: absolute;
+    left: 0px;
+    width: 700px;
+    padding: 10px;
+}
+
+.leftindex3 {
+    position: absolute;
+    left: 0px;
+    width: 1050px;
+    padding: 10px;
+}
