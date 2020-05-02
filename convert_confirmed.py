@@ -31,9 +31,9 @@ for line in datarows:
 	
 	if (int(confirmed) > 0):
 		if (prov != ""):
-			marker = "L.circle([" + lat + "," + lon + "],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:" + str(confirmedradius) + "}).addTo(map).bindPopup('" + prov.replace("'", "") + "," + country.replace("'","") + " : " + confirmed + "')"	
+			marker = "L.circle([" + lat + "," + lon + "],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:" + str(confirmedradius) + "}).addTo(group1).bindPopup('" + prov.replace("'", "") + "," + country.replace("'","") + " : " + confirmed +"')"	
 		else:
-			marker = "L.circle([" + lat + "," + lon + "],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:" + str(confirmedradius) + "}).addTo(map).bindPopup('" + country.replace("'", "") + " : " + confirmed + "')"
+			marker = "L.circle([" + lat + "," + lon + "],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:" + str(confirmedradius) + "}).addTo(group1).bindPopup('" + country.replace("'", "") + " : " + confirmed+"')"
 
 		fo.write(marker + "\n")
 		count = count + 1
