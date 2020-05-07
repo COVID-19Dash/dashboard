@@ -25,25 +25,100 @@
  #navbar a.active {
    background-color: #DF1E1E;
    color: white;
- }     
+ }
+
+ .button {
+   background-color: #575b61;
+   border: 1px solid #727375;
+   color: white;
+   padding: 10px 15px;
+   text-align: center;
+   text-decoration: none;
+   font-family: "Verdana", sans-serif;   
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+ }
+
+.button:hover {
+   background-color: #ddd;
+   border: 1px solid #ddd; 
+ }
+
+.button:focus {
+   background-color:black
+}
+
+.title {
+   font-family: "Verdana", sans-serif;    
+}
 
 .leftindex {
     position: absolute;
     left: 0px;
-    width: 350px;
+    width: 1030px;
     padding: 10px;
 }
 
 .leftindex2 {
     position: absolute;
     left: 0px;
-    width: 700px;
+    width: 1350px;
     padding: 10px;
 }
 
 .leftindex3 {
     position: absolute;
     left: 0px;
-    width: 1050px;
+    width: 1740px;
     padding: 10px;
 }
+
+.leftindex4 {
+    position: absolute;
+    left: 0px;
+    width: 1140px;
+    padding: 10px;
+}
+
+.leftindex5 {
+    position: absolute;
+    left: 0px;
+    width: 1510px;
+    padding: 10px;
+}
+
+.leftindex6 {
+    position: absolute;
+    left: 0px;
+    width: 1860px;
+    padding: 10px;
+}
+
+.leftindex7 {
+   position: relative;
+   left: 0px;
+   width: 1500px;
+   padding: 10px;
+   display: inline;
+}
+
+.leftindex8 {
+   position: relative;
+   left: 0px;
+   width: 1900px;
+   padding: 10px; 
+   display: inline;
+}
+
+.leftindex9 {
+   position: relative;
+   left: 0px;
+   width: 2230px;
+   padding: 10px; 
+   display: inline; 
+}
+
+
+
