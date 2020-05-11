@@ -1,123 +1,84 @@
 <html>
-
-    <head>
-        <link rel='stylesheet' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css'/>
-        <link rel='stylesheet' href='dashboardstyles.css'>
-        <script src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
-    </head>
-    
-    <body>
-        <div id="navbar">
-          <a href="index.html">Dashboard</a>
-          <a class="active" href='index.html'>Map Information</a>
-          <a href="about.html">About</a>
-        </div>
-    </body>
-    
-    <center>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <canvas id="myChart2" width="400" height="400"></canvas>
+    <canvas id="myChart3" width="400" height="400"></canvas>
+    </div>
+</body>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['USA','Spain','Italy','United Kingdom','France','Germany','Turkey','Russia','Iran','Brazil'],
+        datasets: [{
+            label: '# of confirmed cases',
+            data: [1131030,242979,207428,177454,167346,164077,122392,114431,95646,92109],
+            backgroundColor: [
+                'rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        legend:{
+            labels:{
+                fontSize:32
+            }
+        }
         
-    <br><br><br><br><br>
+    }
+});
+    var ctx2 = document.getElementById('myChart2').getContext('2d');
+var myChart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ['USA','Italy','United Kingdom','Spain','France','Belgium','Germany','Brazil','Iran','Netherlands'],
+        datasets: [{
+            label: '# of deaths',
+            data: [65753,28236,27510,24824,24594,7703,6736,6410,6091,4893],
+            backgroundColor: [
+                'rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        legend:{
+            labels:{
+                fontSize:32
+            }
+        }
         
-    <h2 style="font-family: Verdana",sans-serif><b>Top Countries for Total Cases</b></h2>
-    
-    <canvas id="myCanvas" width="400" height="345" style="border:1px solid #d3d3d3;"></canvas>
+    }
+});
+    var ctx3 = document.getElementById('myChart3').getContext('2d');
+var myChart3 = new Chart(ctx3, {
+    type: 'bar',
+    data: {
+        labels: ['USA','Spain','Germany','Italy','China','Iran','Turkey','France','Brazil','Switzerland'],
+        datasets: [{
+            label: '# of recoveries',
+            data: [161563,142441,126900,78249,77642,76318,53808,50212,38039,23900],
+            backgroundColor: [
+                'rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        legend:{
+            labels:{
+                fontSize:32
+            }
+        }
         
-    <h2 style="font-family: Verdana",sans-serif><b>Top Countries for Deaths</b></h2>    
-    
-    <canvas id="myCanvas2" width="400" height="345" style="border:1px solid #d3d3d3;"></canvas>
-        
-    <h2 style="font-family: Verdana",sans-serif><b>Top Countries for Recoveries</b></h2>    
-        
-    <canvas id="myCanvas3" width="400" height="345" style="border:1px solid #d3d3d3;"></canvas>    
-        
-    </center>   
-    
-    <script>
-        
-        var c = document.getElementById("myCanvas");
-        var ctx = c.getContext("2d"); 
-    
-        ctx.fillStyle = "red";
-        ctx.fillRect(0,0,1131030*0.0002,30);
-        ctx.fillRect(0,35,242979*0.0002,30);
-        ctx.fillRect(0,70,207428*0.0002,30);
-        ctx.fillRect(0,105,177454*0.0002,30);
-        ctx.fillRect(0,140,167346*0.0002,30);
-        ctx.fillRect(0,175,164077*0.0002,30);
-        ctx.fillRect(0,210,122392*0.0002,30);
-        ctx.fillRect(0,245,114431*0.0002,30);
-        ctx.fillRect(0,280,95646*0.0002,30);
-        ctx.fillRect(0,315,92109*0.0002,30);
-    
-        ctx.font = "15px Arial";
-        ctx.fillStyle = "red";
-        ctx.fillText("USA (1,131,030)",228.206,20)
-        ctx.fillText("Spain (242,979)",50.5958,55)
-        ctx.fillText("Italy (207,428)",43.4856,90)
-        ctx.fillText("United Kingdom (177,454)",37.4908,125)
-        ctx.fillText("France (167,346)",35.4692,160)
-        ctx.fillText("Germany (164,077)",34.8154,195)
-        ctx.fillText("Turkey (122,392)",26.4784,230)
-        ctx.fillText("Russia (114,431)",24.886,265)
-        ctx.fillText("Iran (95,646)",21.1292,300)
-        ctx.fillText("Brazil (92,109)",20.4218,335)
-    
-        var c = document.getElementById("myCanvas2")
-        var ctx = c.getContext("2d"); 
-    
-        ctx.fillStyle = "black";
-        ctx.fillRect(0,0,65753*0.003,30);
-        ctx.fillRect(0,35,28236*0.003,30);
-        ctx.fillRect(0,70,27510*0.003,30);
-        ctx.fillRect(0,105,24824*0.003,30);
-        ctx.fillRect(0,140,24594*0.003,30); 
-        ctx.fillRect(0,175,7703*0.003,30);
-        ctx.fillRect(0,210,6736*0.003,30);
-        ctx.fillRect(0,245,6410*0.003,30);
-        ctx.fillRect(0,280,6091*0.003,30);
-        ctx.fillRect(0,315,4893*0.003,30);
-    
-        ctx.fillStyle = "black";
-        ctx.font = "15px Arial";
-        ctx.fillText("USA (65,753)",199.259,20)
-        ctx.fillText("Italy (28,236)",86.708,55)
-        ctx.fillText("United Kingdom (27,510)",84.53,90)
-        ctx.fillText("Spain (24,824)",76.472,125)
-        ctx.fillText("France (24,594)",75.782,160)
-        ctx.fillText("Belgium (7,703)",25.109,195)
-        ctx.fillText("Germany (6,736)",22.208,230)
-        ctx.fillText("Brazil (6,410)",21.23,265)
-        ctx.fillText("Iran (6,091)",20.273,300)
-        ctx.fillText("Netherlands (4,893)",16.679,335)
-    
-        var c = document.getElementById("myCanvas3");
-        var ctx = c.getContext("2d"); 
-    
-        ctx.fillStyle = "green";
-        ctx.fillRect(0,0,161563*0.001,30);
-        ctx.fillRect(0,35,142441*0.001,30);
-        ctx.fillRect(0,70,126900*0.001,30);
-        ctx.fillRect(0,105,78249*0.001,30);
-        ctx.fillRect(0,140,77642*0.001,30);
-        ctx.fillRect(0,175,76318*0.001,30);
-        ctx.fillRect(0,210,53808*0.001,30);
-        ctx.fillRect(0,245,50212*0.001,30);
-        ctx.fillRect(0,280,38039*0.001,30);
-        ctx.fillRect(0,315,23900*0.001,30);
-    
-        ctx.font = "15px Arial";
-        ctx.fillStyle = "green";
-        ctx.fillText("USA (161,563)",163.563,20)
-        ctx.fillText("Spain (142,441)",144.441,55)
-        ctx.fillText("Germany (126,900)",128.9,90)
-        ctx.fillText("Italy (78,249)",80.249,125)
-        ctx.fillText("China (77,642)",79.642,160)
-        ctx.fillText("Iran (76,318)",78.318,195)
-        ctx.fillText("Turkey (53,808)",55.808,230)
-        ctx.fillText("France (50,212)",52.212,265)
-        ctx.fillText("Brazil (38,039)",40.039,300)
-        ctx.fillText("Switzerland (23,900)",25.9,335)
-
+    }
+});
     </script>
-
-</html>    
+</html>
