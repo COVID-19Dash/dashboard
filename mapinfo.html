@@ -9,7 +9,10 @@
           <a href="index.html">Dashboard</a>
           <a class=active href="mapinfo.html">Map Information</a>
           <a href="about.html">About</a>
-        </div>    
+    </div>
+    
+    <br><br>
+    
     <div class="container">
     <canvas id="myChart" width="256" height="256"></canvas>
     <canvas id="myChart2" width="256" height="256"></canvas>
@@ -17,13 +20,14 @@
     </div>
 </body>
 <script>
+    
     var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
+    var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ['USA','Spain','Italy','United Kingdom','France','Germany','Turkey','Russia','Iran','Brazil'],
         datasets: [{
-            label: '# of confirmed cases',
+            label: 'Leading Countries for Total Cases',
             data: [1131030,242979,207428,177454,167346,164077,122392,114431,95646,92109],
             backgroundColor: [
                 'rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)','rgba(255, 0, 0, 0.75)',
@@ -41,12 +45,12 @@ var myChart = new Chart(ctx, {
     }
 });
     var ctx2 = document.getElementById('myChart2').getContext('2d');
-var myChart2 = new Chart(ctx2, {
+    var myChart2 = new Chart(ctx2, {
     type: 'bar',
     data: {
         labels: ['USA','Italy','United Kingdom','Spain','France','Belgium','Germany','Brazil','Iran','Netherlands'],
         datasets: [{
-            label: '# of deaths',
+            label: 'Leading Countries for Deaths',
             data: [65753,28236,27510,24824,24594,7703,6736,6410,6091,4893],
             backgroundColor: [
                 'rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)','rgba(0, 0, 0, 0.75)'
@@ -64,12 +68,12 @@ var myChart2 = new Chart(ctx2, {
     }
 });
     var ctx3 = document.getElementById('myChart3').getContext('2d');
-var myChart3 = new Chart(ctx3, {
+    var myChart3 = new Chart(ctx3, {
     type: 'bar',
     data: {
         labels: ['USA','Spain','Germany','Italy','China','Iran','Turkey','France','Brazil','Switzerland'],
         datasets: [{
-            label: '# of recoveries',
+            label: 'Leading Countries for Recoveries',
             data: [161563,142441,126900,78249,77642,76318,53808,50212,38039,23900],
             backgroundColor: [
                 'rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)','rgba(0, 255, 0, 0.75)',
