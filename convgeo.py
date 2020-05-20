@@ -34,7 +34,8 @@ print(deaths)
 import json
 
 with open('canada_provinces.geojson') as f:
-    data=json.load(f)
+  data = json.load(f)
+
 f.close()
 
 for prov in data["features"]:
@@ -48,8 +49,6 @@ for prov in data["features"]:
         prov["properties"]["deaths"] =0
 
 with open('cloropleth.geojson', 'w') as json_file:
-    json.dump(data, json_file)
+  json.dump(data, json_file)
 
 json_file.close()
-
-
