@@ -4,6 +4,7 @@
         <link rel='stylesheet' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css'/>
         <link rel='stylesheet' href='dashboardstyles.css'>
         <script src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+        <script src="cloropleth.geojson"></script><!-- import wrangled geojson -->
     </head>
     
     <body>
@@ -87,7 +88,9 @@
             </div>    
             
         </div>  
-        
+            
+        <div id='map' style='width:100%; height:500'></div>
+            
     </body>
     
     <script>
@@ -4961,6 +4964,40 @@ function deaths(){
     map.addLayer(group3);
     map.removeLayer(group1);
 }
+        
+//chloropleth
+            function getColor(d) {
+           if (d > 9) {
+              return '#800026'; 
+           } else if (d == 5) {
+              return '#FC4E2A';
+           } else if (d > 0 && d < 5) {
+              return '#FED976';
+           } else {
+              return '#FFEDA0' 
+           }
+        }
+        function style(feature) {
+        return {
+                fillColor: getColor(feature.properties.deaths),
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        }
+        map2 = new L.Map('map');
+        var cartocdn = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
+        cartoAttrib = 'Carto geodatabase is good for this application';
+        carto = new L.TileLayer(cartocdn);
+        map2.setView([51.5, 0.12],2); // centered on London lat, long
+        map2.addLayer(carto);
+        
+        L.geoJson(provs, {style: style, onEachFeature: function (feature, layer) {
+        layer.bindPopup('<h3>Deaths</h3><h1>'+feature.properties.deaths+'</h1>');
+        }}).addTo(map2);
+
     </script>
 
 </html>
