@@ -5,6 +5,8 @@
         <link rel='stylesheet' href='dashboardstyles.css'>
         <script src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
         <script src='cloropleth.geojson'></script>
+        <script src='cloropleth2.geojson'></script>
+        <script src='cloropleth3.geojson'></script>
     </head>
     
     <body>
@@ -93,14 +95,27 @@
             
         <div class="title"> 
             <h1>A More In-Depth Look at Canada (April 24th, 2020)</h1>
-        </div>      
+        </div>
             
-        <div id='map2' style='width:100%; height:500'></div>    
+        <div id='map2' style='width:100%; height:500'></div> 
+            
+        <br>
+            
+        <div class="leftindex7">
+            <button onclick = "confirmed2()" class="button">Confirmed Cases</button>
+        </div>
+            
+        <div class="leftindex8">
+            <button onclick = "recovered2()" class="button">Recovered Cases</button>
+        </div>  
+            
+        <div class="leftindex9">
+            <button onclick = "deaths2()" class="button">Deaths</button>
+        </div> 
         
     </body>
     
     <script>
-        // Set up the world map
         var group1 = L.featureGroup();
         var group2 = L.featureGroup();
         var group3 = L.featureGroup();
@@ -110,7 +125,7 @@
         carto = new L.TileLayer(cartocdn);
         map.setView([51.5, 0.12],2); // centered on London lat, long
         map.addLayer(carto);
-        L.circle([-51.7963,-59.5236],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:39}).addTo(group1).bindPopup('Falkland Islands (Malvinas),United Kingdom : 13')
+L.circle([-51.7963,-59.5236],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:39}).addTo(group1).bindPopup('Falkland Islands (Malvinas),United Kingdom : 13')
 L.circle([-42.8821,147.3272],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:621}).addTo(group1).bindPopup('Tasmania,Australia : 207')
 L.circle([-40.9006,174.886],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:4383}).addTo(group1).bindPopup('New Zealand : 1461')
 L.circle([-38.4161,-63.6167],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:10821}).addTo(group1).bindPopup('Argentina : 3607')
@@ -4956,29 +4971,56 @@ L.circle([61.92411,25.748151],{color:'black',fillColor:'#3C3938',fillOpacity:0.5
 L.circle([64.80726247,-146.5692662],{color:'black',fillColor:'#3C3938',fillOpacity:0.5,radius:50}).addTo(group3).bindPopup('Alaska,US : 1')
 L.circle([64.9631,-19.0208],{color:'black',fillColor:'#3C3938',fillOpacity:0.5,radius:500}).addTo(group3).bindPopup('Iceland : 10')
 
-function confirmed(){
-    map.removeLayer(group2);
-    map.removeLayer(group3);
-    map.addLayer(group1);
-}
-function recovered(){
-    map.addLayer(group2);
-    map.removeLayer(group3);
-    map.removeLayer(group1);
-}
-function deaths(){
-    map.removeLayer(group2);
-    map.addLayer(group3);
-    map.removeLayer(group1);
-}
+        function confirmed(){
+            map.removeLayer(group2);
+            map.removeLayer(group3);
+            map.addLayer(group1);
+        }
         
-function getColor(d) {
-           if (d > 9) {
+        function recovered(){
+            map.addLayer(group2);
+            map.removeLayer(group3);
+            map.removeLayer(group1);
+        }
+        
+        function deaths(){
+            map.removeLayer(group2);
+            map.addLayer(group3);
+            map.removeLayer(group1);
+        }
+          
+        
+        function getColor(d) {
+           if (d > 100) {
               return '#800026'; 
-           } else if (d == 5) {
+           } else if (d > 50 && d < 100) {
               return '#FC4E2A';
-           } else if (d > 0 && d < 5) {
-              return '#FED976';
+           } else if (d > 0 && d < 50) {
+              return '#FAD70F';
+           } else {
+              return '#FFEDA0' 
+           }
+        }
+        
+        function getColor2(d) {
+           if (d > 10000) {
+              return '#800026'; 
+           } else if (d > 500 && d < 10000) {
+              return '#FC4E2A';
+           } else if (d > 50 && d < 500) {
+              return '#FAD70F';
+           } else {
+              return '#FFEDA0' 
+           }
+        }
+        
+        function getColor3(d) {
+           if (d > 5000) {
+              return '#800026'; 
+           } else if (d > 1000 && d < 5000) {
+              return '#FC4E2A';
+           } else if (d > 100 && d < 5000) {
+              return '#FAD70F';
            } else {
               return '#FFEDA0' 
            }
@@ -4995,16 +5037,66 @@ function getColor(d) {
             };
         }
         
+        function style2(feature) {
+        return {
+                fillColor: getColor2(feature.properties.confirmed),
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        }
+        
+        function style3(feature) {
+        return {
+                fillColor: getColor3(feature.properties.recover),
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        }
+        
+        var group4 = L.featureGroup();
+        var group5 = L.featureGroup();
+        var group6 = L.featureGroup();
         map2 = new L.Map('map2');
         var cartocdn = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
         cartoAttrib = 'Carto geodatabase is good for this application';
         carto = new L.TileLayer(cartocdn);
-        map2.setView([51.5, 0.12],2); // centered on London lat, long
+        map2.setView(new L.LatLng(60.1304, -105.3468), 3);
         map2.addLayer(carto);
         
-        L.geoJson(provs, {style: style, onEachFeature: function (feature, layer) {
-        layer.bindPopup('<h3>Deaths</h3><h1>'+feature.properties.deaths+'</h1>');
-        }}).addTo(map2);        
+        
+        function deaths2(){
+            map2.removeLayer(group5);
+            map2.removeLayer(group6);
+            map2.addLayer(group4);
+            L.geoJson(provs, {style: style, onEachFeature: function (feature, layer) {
+            layer.bindPopup('<h3>Deaths</h3><h1>'+feature.properties.deaths+'</h1>');
+            }}).addTo(map2).addTo(group4);
+        }
+        
+        function confirmed2(){
+            map2.addLayer(group5);
+            map2.removeLayer(group6);
+            map2.removeLayer(group4);
+            L.geoJson(provs2, {style: style2, onEachFeature: function (feature, layer) {
+            layer.bindPopup('<h3>Confirmed</h3><h1>'+feature.properties.confirmed+'</h1>');
+            }}).addTo(map2).addTo(group5);
+        }
+        
+        function recovered2(){
+            map2.removeLayer(group5);
+            map2.addLayer(group6);
+            map2.removeLayer(group4);
+            L.geoJson(provs3, {style: style3, onEachFeature: function (feature, layer) {
+            layer.bindPopup('<h3>Recovered</h3><h1>'+feature.properties.recover+'</h1>');
+            }}).addTo(map2).addTo(group6);
+        } 
+        
     </script>
 
 </html>
