@@ -22,6 +22,7 @@
             <canvas id="myChart3" width="350" height="350"></canvas>
             <canvas id="myTime" width="350px" height="350px"></canvas>
             <canvas id="myTime2" width="350px" height="350px"></canvas>
+            <canvas id="myTime3" width="350px" height="350px"></canvas>
         </div>
     </div>
 </body>
@@ -112,18 +113,6 @@
             	'rgb(0,255,0)','rgb(0,255,0)','rgb(0,255,0)','rgb(0,255,0)','rgb(0,255,0)','rgb(0,255,0)','rgb(0,255,0)','rgb(0,255,0)','rgb(0,255,0)','rgb(0,255,0)','rgb(0,255,0)','rgb(0,255,0)','rgb(0,255,0)','rgb(0,255,0)'
             ],
             borderWidth: 5
-        },
-        //deaths
-        {
-       	label: 'Timeline of Deaths in Ontario',
-            data: [1607,1665,1726,1751,1788,1852,1883,1915,1939,1976,1999,2019,2032,2079,2106],
-            backgroundColor: [
-                'rgba(0, 0, 0, 0.75)',
-            ],
-            borderColor:[
-            	'rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)'
-            ],
-            borderWidth: 5
         }
 
         ]
@@ -154,6 +143,35 @@
             ],
             borderColor:[
             	'rgb(128,0,128)','rgb(128,0,128)','rgb(128,0,128)','rgb(128,0,128)','rgb(128,0,128)','rgb(128,0,128)','rgb(128,0,128)','rgb(128,0,128)','rgb(128,0,128)','rgb(128,0,128)','rgb(128,0,128)','rgb(128,0,128)','rgb(128,0,128)','rgb(128,0,128)'
+            ],
+            borderWidth: 5
+        }
+        ]
+    },
+    options: {
+        legend:{
+            labels:{
+                fontSize:24
+            }
+        }
+    }
+	});
+
+   var ctx6 = document.getElementById('myTime3').getContext('2d');
+    var myTime2 = new Chart(ctx6, {
+    type: 'line',
+    data: {
+        labels: ['5/7/20','5/8/20','5/9/20','5/10/20','5/11/20','5/12/20','5/13/20','5/14/20','5/15/20','5/16/20','5/17/20','5/18/20','5/19/20','5/20/20'],
+        datasets: [
+        //confirmed cases
+        {
+        	label: 'Timeline of Deaths in Ontario',
+            data: [1607,1665,1726,1751,1788,1852,1883,1915,1939,1976,1999,2019,2032,2079,2106],
+            backgroundColor: [
+                'rgba(0, 0, 0, 0.75)',
+            ],
+            borderColor:[
+            	'rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)','rgb(211,211,211)'
             ],
             borderWidth: 5
         }
