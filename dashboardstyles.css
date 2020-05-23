@@ -137,3 +137,8 @@
     width: 2080px;
     padding: 10px;
 }
+
+.chart-sizing {
+  width: 500px;
+  height: 500px;
+}   
