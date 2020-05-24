@@ -17,7 +17,7 @@
         
     <div class="title"> 
         <h1><b>Graphs</b></h1>
-        <p>Please Note: Data is of April 24, 2020 for the graphs on the left and May 20, 2020 for graphs on the right</p>
+        <p>Please Note: Data is of April 24, 2020</p>
     </div>
     
     <div class="container">
@@ -106,17 +106,15 @@
     }
 });
     
-	// ontario confirmed and deaths timeline
 	var ctx4 = document.getElementById('myTime').getContext('2d');
     var myTime = new Chart(ctx4, {
     type: 'line',
     data: {
-        labels: ['5/7/20','5/8/20','5/9/20','5/10/20','5/11/20','5/12/20','5/13/20','5/14/20','5/15/20','5/16/20','5/17/20','5/18/20','5/19/20','5/20/20'],
+        labels: ['4/10/20','4/11/20','4/12/20','4/13/20','4/14/20','4/15/20','4/16/20','4/17/20','4/18/20','4/19/20','4/20/20','4/21/20','4/22/20','4/23/20','4/24/20'],
         datasets: [
-        //confirmed cases
         {
-        	label: 'Timeline of Confirmed Cases in Ontario',
-            data: [20388,20826,21148,21469,21817,22158,22516,22865,23258,23645,23974,24286,24755,25197,25595],
+        	label: 'Timeline of Confirmed Cases in Canada',
+            data: [22033,23290,24273,25654,27009,28183,30783,32788,34329,35606,37629,39373,41634,43270,44890],
             backgroundColor: [
                 'rgba(255, 0, 0, 0.75)',
             ],
@@ -137,18 +135,15 @@
     }
 	});
 
-//chart 2
-
     var ctx5 = document.getElementById('myTime2').getContext('2d');
     var myTime2 = new Chart(ctx5, {
     type: 'line',
     data: {
-        labels: ['5/7/20','5/8/20','5/9/20','5/10/20','5/11/20','5/12/20','5/13/20','5/14/20','5/15/20','5/16/20','5/17/20','5/18/20','5/19/20','5/20/20'],
+        labels: ['4/10/20','4/11/20','4/12/20','4/13/20','4/14/20','4/15/20','4/16/20','4/17/20','4/18/20','4/19/20','4/20/20','4/21/20','4/22/20','4/23/20','4/24/20'],
         datasets: [
-        //confirmed cases
         {
-        	label: 'Timeline of Recovered Cases in Canada',
-            data: [29260,30239,31262,32109,33007,34055,35177,36104,36908,37832,38563,39251,40069,40793,41731],
+        	label: 'Timeline of Recoveries in Canada',
+            data: [5855,6589,7123,7758,8210,8966,9698,10545,10964,11847,12543,13188,14454,14761,15149],
             backgroundColor: [
                 'rgba(0, 255, 0, 0.75)'
             ],
@@ -172,12 +167,11 @@
     var myTime2 = new Chart(ctx6, {
     type: 'line',
     data: {
-        labels: ['5/7/20','5/8/20','5/9/20','5/10/20','5/11/20','5/12/20','5/13/20','5/14/20','5/15/20','5/16/20','5/17/20','5/18/20','5/19/20','5/20/20'],
+        labels: ['4/10/20','4/11/20','4/12/20','4/13/20','4/14/20','4/15/20','4/16/20','4/17/20','4/18/20','4/19/20','4/20/20','4/21/20','4/22/20','4/23/20','4/24/20'],
         datasets: [
-        //confirmed cases
         {
-        	label: 'Timeline of Deaths in Ontario',
-            data: [1607,1665,1726,1751,1788,1852,1883,1915,1939,1976,1999,2019,2032,2079,2106],
+        	label: 'Timeline of Deaths in Canada',
+            data: [557,654,781,901,1008,1259,1356,1401,1565,1727,1854,1910,2078,2241,2388],
             backgroundColor: [
                 'rgba(0, 0, 0, 0.75)',
             ],
